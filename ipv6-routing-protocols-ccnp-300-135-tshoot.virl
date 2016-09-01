@@ -1762,7 +1762,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:18:19 UTC Thu Sep 1 2016
+! Last configuration change at 23:24:06 UTC Thu Sep 1 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1877,6 +1877,7 @@ interface GigabitEthernet0/4
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:1457::4/64
 !
 interface GigabitEthernet0/5
  description GigabitEthernet0/5
@@ -1950,7 +1951,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5005</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:12:16 UTC Thu Sep 1 2016
+! Last configuration change at 23:26:09 UTC Thu Sep 1 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2042,6 +2043,7 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:1457::5/64
 !
 interface GigabitEthernet0/2
  description GigabitEthernet0/2
@@ -2077,6 +2079,7 @@ interface GigabitEthernet0/6
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:56::5/64
 !
 interface GigabitEthernet0/7
  description to R7
@@ -2084,6 +2087,7 @@ interface GigabitEthernet0/7
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:57::5/64
 !
 interface GigabitEthernet0/8
  description to R8
@@ -2091,6 +2095,7 @@ interface GigabitEthernet0/8
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:58::5/64
 !
 ip forward-protocol nd
 !
