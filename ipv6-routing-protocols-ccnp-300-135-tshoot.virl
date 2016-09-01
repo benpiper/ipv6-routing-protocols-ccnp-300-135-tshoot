@@ -1156,7 +1156,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:14:36 UTC Thu Sep 1 2016
+! Last configuration change at 23:12:28 UTC Thu Sep 1 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1248,6 +1248,7 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:1457::1/64
 !
 interface GigabitEthernet0/2
  description to R2
@@ -1255,6 +1256,7 @@ interface GigabitEthernet0/2
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:12::1/64
 !
 interface GigabitEthernet0/3
  description to R3
@@ -1262,6 +1264,7 @@ interface GigabitEthernet0/3
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:13::1/64
 !
 interface GigabitEthernet0/4
  description GigabitEthernet0/4
@@ -1391,7 +1394,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:15:06 UTC Thu Sep 1 2016
+! Last configuration change at 23:14:30 UTC Thu Sep 1 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1483,6 +1486,7 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:12::2/64
 !
 interface GigabitEthernet0/2
  description GigabitEthernet0/2
@@ -1504,6 +1508,7 @@ interface GigabitEthernet0/4
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:24::2/64
 !
 ip forward-protocol nd
 !
@@ -1569,7 +1574,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:14:06 UTC Thu Sep 1 2016
+! Last configuration change at 23:15:59 UTC Thu Sep 1 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1661,6 +1666,7 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:13::3/64
 !
 interface GigabitEthernet0/2
  description GigabitEthernet0/2
@@ -1679,6 +1685,7 @@ interface GigabitEthernet0/3
 interface GigabitEthernet0/4
  description to R4
  no ip address
+ shutdown
  duplex full
  speed auto
  media-type rj45
@@ -1755,7 +1762,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:12:52 UTC Thu Sep 1 2016
+! Last configuration change at 23:18:19 UTC Thu Sep 1 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1854,10 +1861,12 @@ interface GigabitEthernet0/2
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:24::4/64
 !
 interface GigabitEthernet0/3
  description to R3
  no ip address
+ shutdown
  duplex full
  speed auto
  media-type rj45
