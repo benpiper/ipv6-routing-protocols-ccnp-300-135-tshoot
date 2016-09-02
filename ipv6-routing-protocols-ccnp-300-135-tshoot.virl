@@ -1156,7 +1156,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:24:31 UTC Fri Sep 2 2016
+! Last configuration change at 22:49:28 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1232,6 +1232,7 @@ no cdp run
 interface Loopback0
  description Loopback
  no ip address
+ ipv6 address FE80::1 link-local
  ipv6 address 2002::1/128
 !
 interface GigabitEthernet0/0
@@ -1248,6 +1249,7 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::1 link-local
  ipv6 address 2001:1457::1/64
 !
 interface GigabitEthernet0/2
@@ -1256,6 +1258,7 @@ interface GigabitEthernet0/2
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::1 link-local
  ipv6 address 2001:12::1/64
 !
 interface GigabitEthernet0/3
@@ -1264,7 +1267,9 @@ interface GigabitEthernet0/3
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::1 link-local
  ipv6 address 2001:13::1/64
+ ipv6 eigrp 10
 !
 interface GigabitEthernet0/4
  description GigabitEthernet0/4
@@ -1328,6 +1333,23 @@ interface GigabitEthernet0/12
  duplex full
  speed auto
  media-type rj45
+!
+!
+router eigrp 10
+!
+!
+router eigrp PS
+ !
+ address-family ipv6 unicast autonomous-system 10
+  !
+  af-interface GigabitEthernet0/1
+   shutdown
+  exit-af-interface
+  !
+  topology base
+  exit-af-topology
+  eigrp router-id 1.1.1.1
+ exit-address-family
 !
 ip forward-protocol nd
 !
@@ -1394,7 +1416,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:24:32 UTC Fri Sep 2 2016
+! Last configuration change at 22:35:21 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1470,6 +1492,7 @@ no cdp run
 interface Loopback0
  description Loopback
  no ip address
+ ipv6 address FE80::2 link-local
  ipv6 address 2002::2/128
 !
 interface GigabitEthernet0/0
@@ -1486,6 +1509,7 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::2 link-local
  ipv6 address 2001:12::2/64
 !
 interface GigabitEthernet0/2
@@ -1508,7 +1532,18 @@ interface GigabitEthernet0/4
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::2 link-local
  ipv6 address 2001:24::2/64
+!
+!
+router eigrp PS
+ !
+ address-family ipv6 unicast autonomous-system 10
+  !
+  topology base
+  exit-af-topology
+  eigrp router-id 2.2.2.2
+ exit-address-family
 !
 ip forward-protocol nd
 !
@@ -1574,7 +1609,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:24:41 UTC Fri Sep 2 2016
+! Last configuration change at 22:38:39 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1650,6 +1685,7 @@ no cdp run
 interface Loopback0
  description Loopback
  no ip address
+ ipv6 address FE80::3 link-local
  ipv6 address 2002::3/128
 !
 interface GigabitEthernet0/0
@@ -1666,6 +1702,7 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::3 link-local
  ipv6 address 2001:13::3/64
 !
 interface GigabitEthernet0/2
@@ -1696,6 +1733,16 @@ interface GigabitEthernet0/5
  duplex full
  speed auto
  media-type rj45
+!
+!
+router eigrp PS
+ !
+ address-family ipv6 unicast autonomous-system 10
+  !
+  topology base
+  exit-af-topology
+  eigrp router-id 3.3.3.3
+ exit-address-family
 !
 ip forward-protocol nd
 !
@@ -1762,7 +1809,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:24:49 UTC Fri Sep 2 2016
+! Last configuration change at 22:47:55 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1838,6 +1885,7 @@ no cdp run
 interface Loopback0
  description Loopback
  no ip address
+ ipv6 address FE80::4 link-local
  ipv6 address 2002::4/128
 !
 interface GigabitEthernet0/0
@@ -1861,6 +1909,7 @@ interface GigabitEthernet0/2
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::4 link-local
  ipv6 address 2001:24::4/64
 !
 interface GigabitEthernet0/3
@@ -1877,6 +1926,7 @@ interface GigabitEthernet0/4
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::4 link-local
  ipv6 address 2001:1457::4/64
 !
 interface GigabitEthernet0/5
@@ -1885,6 +1935,24 @@ interface GigabitEthernet0/5
  duplex full
  speed auto
  media-type rj45
+!
+!
+router eigrp PS
+ !
+ address-family ipv6 unicast autonomous-system 10
+  !
+  af-interface default
+   shutdown
+  exit-af-interface
+  !
+  af-interface GigabitEthernet0/2
+   no shutdown
+  exit-af-interface
+  !
+  topology base
+  exit-af-topology
+  eigrp router-id 4.4.4.4
+ exit-address-family
 !
 ip forward-protocol nd
 !
