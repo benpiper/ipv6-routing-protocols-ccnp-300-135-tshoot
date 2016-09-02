@@ -11,7 +11,7 @@
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:17:36 UTC Thu Sep 1 2016
+! Last configuration change at 13:26:47 UTC Fri Sep 2 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -99,7 +99,7 @@ interface GigabitEthernet0/0
  description OOB management
  no switchport
  vrf forwarding Mgmt-intf
- ip address 10.255.2.183 255.255.0.0
+ ip address 10.255.2.200 255.255.0.0
  negotiation auto
 !
 interface GigabitEthernet1/0
@@ -235,7 +235,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:21:22 UTC Thu Sep 1 2016
+! Last configuration change at 13:26:05 UTC Fri Sep 2 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -320,7 +320,7 @@ interface GigabitEthernet0/0
  description OOB management
  no switchport
  vrf forwarding Mgmt-intf
- ip address 10.255.2.184 255.255.0.0
+ ip address 10.255.2.201 255.255.0.0
  negotiation auto
 !
 interface GigabitEthernet1/0
@@ -420,7 +420,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:21:59 UTC Thu Sep 1 2016
+! Last configuration change at 13:27:13 UTC Fri Sep 2 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -503,7 +503,7 @@ interface GigabitEthernet0/0
  description OOB management
  no switchport
  vrf forwarding Mgmt-intf
- ip address 10.255.2.185 255.255.0.0
+ ip address 10.255.2.202 255.255.0.0
  negotiation auto
 !
 interface GigabitEthernet1/0
@@ -626,7 +626,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:21:48 UTC Thu Sep 1 2016
+! Last configuration change at 13:27:37 UTC Fri Sep 2 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -707,7 +707,7 @@ interface GigabitEthernet0/0
  description OOB management
  no switchport
  vrf forwarding Mgmt-intf
- ip address 10.255.2.186 255.255.0.0
+ ip address 10.255.2.203 255.255.0.0
  negotiation auto
 !
 interface GigabitEthernet1/0
@@ -897,7 +897,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4005</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:22:17 UTC Thu Sep 1 2016
+! Last configuration change at 13:27:45 UTC Fri Sep 2 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -978,7 +978,7 @@ interface GigabitEthernet0/0
  description OOB management
  no switchport
  vrf forwarding Mgmt-intf
- ip address 10.255.2.187 255.255.0.0
+ ip address 10.255.2.204 255.255.0.0
  negotiation auto
 !
 interface GigabitEthernet1/0
@@ -1156,7 +1156,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:12:28 UTC Thu Sep 1 2016
+! Last configuration change at 13:24:31 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1237,7 +1237,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.174 255.255.0.0
+ ip address 10.255.2.191 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -1394,7 +1394,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:14:30 UTC Thu Sep 1 2016
+! Last configuration change at 13:24:32 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1475,7 +1475,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.175 255.255.0.0
+ ip address 10.255.2.192 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -1574,7 +1574,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:15:59 UTC Thu Sep 1 2016
+! Last configuration change at 13:24:41 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1655,7 +1655,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.176 255.255.0.0
+ ip address 10.255.2.193 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -1762,7 +1762,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:24:06 UTC Thu Sep 1 2016
+! Last configuration change at 13:24:49 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1843,7 +1843,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.177 255.255.0.0
+ ip address 10.255.2.194 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -1951,7 +1951,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5005</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:26:09 UTC Thu Sep 1 2016
+! Last configuration change at 13:25:09 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2032,7 +2032,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.178 255.255.0.0
+ ip address 10.255.2.195 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -2162,7 +2162,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5008</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:09:06 UTC Thu Sep 1 2016
+! Last configuration change at 13:26:49 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2243,7 +2243,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.181 255.255.0.0
+ ip address 10.255.2.198 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -2386,7 +2386,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5006</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:10:14 UTC Thu Sep 1 2016
+! Last configuration change at 15:56:30 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2467,7 +2467,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.179 255.255.0.0
+ ip address 10.255.2.196 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -2506,6 +2506,7 @@ interface GigabitEthernet0/5
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:56::6/64
 !
 interface GigabitEthernet0/6
  description GigabitEthernet0/6
@@ -2527,6 +2528,7 @@ interface GigabitEthernet0/8
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:68::6/64
 !
 interface GigabitEthernet0/9
  description GigabitEthernet0/9
@@ -2608,7 +2610,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5007</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:09:48 UTC Thu Sep 1 2016
+! Last configuration change at 16:26:02 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2689,7 +2691,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.180 255.255.0.0
+ ip address 10.255.2.197 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -2700,6 +2702,7 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:1457::7/64
 !
 interface GigabitEthernet0/2
  no ip address
@@ -2728,6 +2731,7 @@ interface GigabitEthernet0/5
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:57::7/64
 !
 interface GigabitEthernet0/6
  no ip address
@@ -2749,6 +2753,7 @@ interface GigabitEthernet0/8
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:78::7/64
 !
 interface GigabitEthernet0/9
  no ip address
@@ -2835,7 +2840,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:28:57 UTC Thu Sep 1 2016
+! Last configuration change at 13:28:45 UTC Fri Sep 2 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2916,7 +2921,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.182 255.255.0.0
+ ip address 10.255.2.199 255.255.0.0
  duplex full
  speed auto
  media-type rj45
