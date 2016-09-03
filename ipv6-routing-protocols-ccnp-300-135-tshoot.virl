@@ -1156,7 +1156,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 22:49:28 UTC Fri Sep 2 2016
+! Last configuration change at 03:40:42 UTC Sat Sep 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1251,6 +1251,7 @@ interface GigabitEthernet0/1
  media-type rj45
  ipv6 address FE80::1 link-local
  ipv6 address 2001:1457::1/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/2
  description to R2
@@ -1349,6 +1350,12 @@ router eigrp PS
   topology base
   exit-af-topology
   eigrp router-id 1.1.1.1
+ exit-address-family
+!
+router ospfv3 1
+ router-id 1.1.1.1
+ !
+ address-family ipv6 unicast
  exit-address-family
 !
 ip forward-protocol nd
@@ -1809,7 +1816,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 22:47:55 UTC Fri Sep 2 2016
+! Last configuration change at 03:40:33 UTC Sat Sep 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1928,6 +1935,7 @@ interface GigabitEthernet0/4
  media-type rj45
  ipv6 address FE80::4 link-local
  ipv6 address 2001:1457::4/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/5
  description GigabitEthernet0/5
@@ -1952,6 +1960,12 @@ router eigrp PS
   topology base
   exit-af-topology
   eigrp router-id 4.4.4.4
+ exit-address-family
+!
+router ospfv3 1
+ router-id 4.4.4.4
+ !
+ address-family ipv6 unicast
  exit-address-family
 !
 ip forward-protocol nd
@@ -2019,7 +2033,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5005</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:25:09 UTC Fri Sep 2 2016
+! Last configuration change at 04:05:32 UTC Sat Sep 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2112,6 +2126,7 @@ interface GigabitEthernet0/1
  speed auto
  media-type rj45
  ipv6 address 2001:1457::5/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/2
  description GigabitEthernet0/2
@@ -2148,6 +2163,7 @@ interface GigabitEthernet0/6
  speed auto
  media-type rj45
  ipv6 address 2001:56::5/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/7
  description to R7
@@ -2156,6 +2172,7 @@ interface GigabitEthernet0/7
  speed auto
  media-type rj45
  ipv6 address 2001:57::5/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/8
  description to R8
@@ -2164,6 +2181,13 @@ interface GigabitEthernet0/8
  speed auto
  media-type rj45
  ipv6 address 2001:58::5/64
+ ipv6 ospf 1 area 0
+!
+router ospfv3 1
+ router-id 5.5.5.5
+ !
+ address-family ipv6 unicast
+ exit-address-family
 !
 ip forward-protocol nd
 !
@@ -2230,7 +2254,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5008</entry>
             <entry key="config" type="String">!
-! Last configuration change at 16:33:39 UTC Fri Sep 2 2016
+! Last configuration change at 04:30:05 UTC Sat Sep 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2306,6 +2330,7 @@ no cdp run
 interface Loopback0
  description Loopback
  no ip address
+ ipv6 address FE80::8 link-local
  ipv6 address 2002::8/128
 !
 interface GigabitEthernet0/0
@@ -2350,7 +2375,9 @@ interface GigabitEthernet0/5
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::8 link-local
  ipv6 address 2001:58::8/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/6
  description to R6
@@ -2358,7 +2385,9 @@ interface GigabitEthernet0/6
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::8 link-local
  ipv6 address 2001:68::8/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/7
  description to R7
@@ -2366,7 +2395,9 @@ interface GigabitEthernet0/7
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::8 link-local
  ipv6 address 2001:78::8/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/8
  description GigabitEthernet0/8
@@ -2381,6 +2412,7 @@ interface GigabitEthernet0/9
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::8 link-local
  ipv6 address 2001:89::8/64
 !
 interface GigabitEthernet0/10
@@ -2389,6 +2421,16 @@ interface GigabitEthernet0/10
  duplex full
  speed auto
  media-type rj45
+!
+router ospfv3 1
+ router-id 8.8.8.8
+ !
+ address-family ipv6 unicast
+ exit-address-family
+!
+router bgp 65000
+ bgp router-id 8.8.8.8
+ bgp log-neighbor-changes
 !
 ip forward-protocol nd
 !
@@ -2458,7 +2500,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5006</entry>
             <entry key="config" type="String">!
-! Last configuration change at 15:56:30 UTC Fri Sep 2 2016
+! Last configuration change at 04:23:01 UTC Sat Sep 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2579,6 +2621,7 @@ interface GigabitEthernet0/5
  speed auto
  media-type rj45
  ipv6 address 2001:56::6/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/6
  description GigabitEthernet0/6
@@ -2601,6 +2644,7 @@ interface GigabitEthernet0/8
  speed auto
  media-type rj45
  ipv6 address 2001:68::6/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/9
  description GigabitEthernet0/9
@@ -2615,6 +2659,12 @@ interface GigabitEthernet0/10
  duplex full
  speed auto
  media-type rj45
+!
+router ospfv3 1
+ router-id 6.6.6.6
+ !
+ address-family ipv6 unicast
+ exit-address-family
 !
 ip forward-protocol nd
 !
@@ -2682,7 +2732,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5007</entry>
             <entry key="config" type="String">!
-! Last configuration change at 16:26:02 UTC Fri Sep 2 2016
+! Last configuration change at 04:37:38 UTC Sat Sep 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2758,6 +2808,7 @@ no cdp run
 interface Loopback0
  description Loopback
  no ip address
+ ipv6 address FE80::7 link-local
  ipv6 address 2002::7/128
 !
 interface GigabitEthernet0/0
@@ -2774,7 +2825,9 @@ interface GigabitEthernet0/1
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::7 link-local
  ipv6 address 2001:1457::7/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/2
  no ip address
@@ -2803,7 +2856,9 @@ interface GigabitEthernet0/5
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::7 link-local
  ipv6 address 2001:57::7/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/6
  no ip address
@@ -2825,7 +2880,9 @@ interface GigabitEthernet0/8
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::7 link-local
  ipv6 address 2001:78::7/64
+ ipv6 ospf 1 area 0
 !
 interface GigabitEthernet0/9
  no ip address
@@ -2847,6 +2904,12 @@ interface GigabitEthernet0/11
  duplex full
  speed auto
  media-type rj45
+!
+router ospfv3 1
+ router-id 7.7.7.7
+ !
+ address-family ipv6 unicast
+ exit-address-family
 !
 ip forward-protocol nd
 !
@@ -2912,7 +2975,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 16:41:08 UTC Fri Sep 2 2016
+! Last configuration change at 04:35:22 UTC Sat Sep 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2988,6 +3051,7 @@ no cdp run
 interface Loopback0
  description Loopback
  no ip address
+ ipv6 address FE80::9 link-local
  ipv6 address 2002::9/128
 !
 interface GigabitEthernet0/0
@@ -3053,6 +3117,7 @@ interface GigabitEthernet0/8
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::9 link-local
  ipv6 address 2001:89::9/64
 !
 interface GigabitEthernet0/9
@@ -3096,6 +3161,10 @@ interface GigabitEthernet0/14
  duplex full
  speed auto
  media-type rj45
+!
+router bgp 65000
+ bgp router-id 9.9.9.9
+ bgp log-neighbor-changes
 !
 ip forward-protocol nd
 !
