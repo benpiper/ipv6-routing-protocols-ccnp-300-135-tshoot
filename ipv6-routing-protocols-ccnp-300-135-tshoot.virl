@@ -1147,7 +1147,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:36:20 UTC Tue Sep 6 2016
+! Last configuration change at 15:55:25 UTC Sat Sep 3 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1229,7 +1229,7 @@ interface Loopback0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.2.242 255.255.0.0
+ ip address 10.255.2.225 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -1339,7 +1339,6 @@ router eigrp PS
   exit-af-interface
   !
   topology base
-   redistribute ospf 1 metric 10 10 255 1 1500
   exit-af-topology
   eigrp router-id 1.1.1.1
  exit-address-family
@@ -1349,7 +1348,6 @@ router ospfv3 1
  area 15 nssa
  !
  address-family ipv6 unicast
-  redistribute eigrp 10 include-connected
  exit-address-family
 !
 ip forward-protocol nd
@@ -2259,7 +2257,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5008</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:43:14 UTC Tue Sep 6 2016
+! Last configuration change at 00:04:28 UTC Wed Sep 7 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2431,11 +2429,23 @@ router ospfv3 1
  router-id 8.8.8.8
  !
  address-family ipv6 unicast
+  redistribute bgp 65000
  exit-address-family
 !
 router bgp 65000
  bgp router-id 8.8.8.8
  bgp log-neighbor-changes
+ neighbor 2001:89::9 remote-as 65000
+ !
+ address-family ipv4
+  no neighbor 2001:89::9 activate
+ exit-address-family
+ !
+ address-family ipv6
+  redistribute ospf 1 match internal external 1 external 2 nssa-external 1 nssa-external 2 include-connected
+  network 2002::8/128
+  neighbor 2001:89::9 activate
+ exit-address-family
 !
 ip forward-protocol nd
 !
@@ -2505,7 +2515,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5006</entry>
             <entry key="config" type="String">!
-! Last configuration change at 22:04:02 UTC Tue Sep 6 2016
+! Last configuration change at 23:41:13 UTC Tue Sep 6 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2581,6 +2591,7 @@ no cdp run
 interface Loopback0
  description Loopback
  no ip address
+ ipv6 address FE80::6 link-local
  ipv6 address 2002::6/128
  ipv6 ospf 1 area 1
 !
@@ -2626,6 +2637,7 @@ interface GigabitEthernet0/5
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::6 link-local
  ipv6 address 2001:56::6/64
  ipv6 ospf 1 area 0
 !
@@ -2649,6 +2661,7 @@ interface GigabitEthernet0/8
  duplex full
  speed auto
  media-type rj45
+ ipv6 address FE80::6 link-local
  ipv6 address 2001:68::6/64
  ipv6 ospf 1 area 0
 !
@@ -2988,7 +3001,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 21:45:07 UTC Tue Sep 6 2016
+! Last configuration change at 00:07:00 UTC Wed Sep 7 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -3178,6 +3191,16 @@ interface GigabitEthernet0/14
 router bgp 65000
  bgp router-id 9.9.9.9
  bgp log-neighbor-changes
+ neighbor 2001:89::8 remote-as 65000
+ !
+ address-family ipv4
+  no neighbor 2001:89::8 activate
+ exit-address-family
+ !
+ address-family ipv6
+  network 2002::9/128
+  neighbor 2001:89::8 activate
+ exit-address-family
 !
 ip forward-protocol nd
 !
