@@ -11,7 +11,7 @@
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:57:33 UTC Wed Sep 7 2016
+! Last configuration change at 00:16:41 UTC Thu Sep 8 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -41,6 +41,7 @@ no aaa new-model
 !
 !
 !
+vtp mode transparent
 !
 !
 !
@@ -54,6 +55,8 @@ spanning-tree mode rapid-pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+!
+vlan 6 
 no cdp run
 !
 ! 
@@ -76,7 +79,8 @@ interface Loopback0
 !
 interface GigabitEthernet0/1
  description to SW2
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -101,13 +105,15 @@ interface GigabitEthernet0/0
 !
 interface GigabitEthernet1/0
  description to SW3
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet1/1
  description to SW5
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -130,7 +136,8 @@ interface GigabitEthernet2/0
 !
 interface GigabitEthernet2/1
  description to SW2
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -148,7 +155,8 @@ interface GigabitEthernet3/0
 !
 interface GigabitEthernet3/1
  description to SW5
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -229,7 +237,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:56:56 UTC Wed Sep 7 2016
+! Last configuration change at 00:18:24 UTC Thu Sep 8 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -259,6 +267,7 @@ no aaa new-model
 !
 !
 !
+vtp mode transparent
 !
 !
 !
@@ -272,6 +281,8 @@ spanning-tree mode rapid-pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+!
+vlan 6 
 no cdp run
 !
 ! 
@@ -294,7 +305,8 @@ interface Loopback0
 !
 interface GigabitEthernet0/1
  description to SW1
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -319,7 +331,8 @@ interface GigabitEthernet0/0
 !
 interface GigabitEthernet1/0
  description to SW4
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -332,7 +345,8 @@ interface GigabitEthernet1/1
 !
 interface GigabitEthernet1/2
  description to SW5
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -346,7 +360,8 @@ interface GigabitEthernet2/0
 !
 interface GigabitEthernet2/1
  description to SW1
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -415,7 +430,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4003</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:52:41 UTC Wed Sep 7 2016
+! Last configuration change at 00:19:16 UTC Thu Sep 8 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -506,7 +521,8 @@ interface GigabitEthernet0/0
 !
 interface GigabitEthernet1/0
  description to SW1
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -518,13 +534,15 @@ interface GigabitEthernet1/1
 !
 interface GigabitEthernet1/2
  description to SW4
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
 interface GigabitEthernet1/3
  description to SW5
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -546,7 +564,8 @@ interface GigabitEthernet2/2
 !
 interface GigabitEthernet2/3
  description to SW5
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -625,7 +644,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">4004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 23:57:23 UTC Wed Sep 7 2016
+! Last configuration change at 00:17:34 UTC Thu Sep 8 2016
 !
 version 15.2
 service timestamps debug datetime msec
@@ -655,6 +674,7 @@ no aaa new-model
 !
 !
 !
+vtp mode transparent
 !
 !
 !
@@ -668,6 +688,8 @@ spanning-tree mode rapid-pvst
 spanning-tree extend system-id
 !
 vlan internal allocation policy ascending
+!
+vlan 6 
 no cdp run
 !
 ! 
@@ -711,7 +733,8 @@ interface GigabitEthernet0/0
 !
 interface GigabitEthernet1/0
  description to SW2
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
@@ -726,7 +749,8 @@ interface GigabitEthernet1/1
 !
 interface GigabitEthernet1/2
  description to SW3
- switchport mode access
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
  media-type rj45
  negotiation auto
 !
