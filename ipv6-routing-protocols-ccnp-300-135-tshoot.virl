@@ -1190,7 +1190,7 @@ write_files:
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5001</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:09:31 UTC Fri Sep 9 2016
+! Last configuration change at 21:50:52 UTC Fri Sep 9 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1382,6 +1382,10 @@ router eigrp PS
    shutdown
   exit-af-interface
   !
+  af-interface GigabitEthernet0/2
+   authentication mode hmac-sha-256 Pluralsight
+  exit-af-interface
+  !
   topology base
    redistribute ospf 1 metric 10 10 255 1 1500
   exit-af-topology
@@ -1391,6 +1395,7 @@ router eigrp PS
 router ospfv3 1
  router-id 1.1.1.1
  area 15 nssa
+ area 15 authentication ipsec spi 1015 sha1 332C0C249DFB05B93DD2766520F8215EF48FA9EA
  !
  address-family ipv6 unicast
   redistribute connected
@@ -1462,7 +1467,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 00:28:46 UTC Fri Sep 9 2016
+! Last configuration change at 22:26:09 UTC Fri Sep 9 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1514,6 +1519,11 @@ ipv6 cef
 multilink bundle-name authenticated
 !
 !
+!
+key chain KC-R4
+ key 1
+  key-string Pluralsight
+  cryptographic-algorithm hmac-sha-512
 !
 !
 username cisco privilege 15 secret 5 $1$U8fO$IzKFDrLdTPGkEe22E1Otb/
@@ -1585,6 +1595,15 @@ interface GigabitEthernet0/4
 router eigrp PS
  !
  address-family ipv6 unicast autonomous-system 10
+  !
+  af-interface GigabitEthernet0/1
+   authentication mode hmac-sha-256 Pluralsight
+  exit-af-interface
+  !
+  af-interface GigabitEthernet0/4
+   authentication mode md5
+   authentication key-chain KC-R4
+  exit-af-interface
   !
   topology base
   exit-af-topology
@@ -1855,7 +1874,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:17:35 UTC Fri Sep 9 2016
+! Last configuration change at 22:35:01 UTC Fri Sep 9 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1907,6 +1926,10 @@ ipv6 cef
 multilink bundle-name authenticated
 !
 !
+!
+key chain KC-R2
+ key 1
+  key-string Pluralsight
 !
 !
 username cisco privilege 15 secret 5 $1$m7n4$rp6DJA3q0.BjV6rcetFte1
@@ -1995,6 +2018,8 @@ router eigrp PS
   !
   af-interface GigabitEthernet0/2
    no shutdown
+   authentication mode md5
+   authentication key-chain KC-R2
   exit-af-interface
   !
   topology base
@@ -2012,6 +2037,7 @@ router eigrp PS
 router ospfv3 1
  router-id 4.4.4.4
  area 15 nssa
+ area 15 authentication ipsec spi 1015 sha1 332C0C249DFB05B93DD2766520F8215EF48FA9EA
  !
  address-family ipv6 unicast
   redistribute connected
@@ -2099,7 +2125,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5005</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:50:52 UTC Fri Sep 9 2016
+! Last configuration change at 21:39:03 UTC Fri Sep 9 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2261,6 +2287,7 @@ interface GigabitEthernet0/8
 router ospfv3 1
  router-id 5.5.5.5
  area 15 nssa default-information-originate
+ area 15 authentication ipsec spi 1015 sha1 332C0C249DFB05B93DD2766520F8215EF48FA9EA
  !
  address-family ipv6 unicast
   redistribute connected
@@ -2839,7 +2866,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">ospf</entry>
             <entry key="static_serial_port_0" type="Integer">5007</entry>
             <entry key="config" type="String">!
-! Last configuration change at 20:44:33 UTC Fri Sep 9 2016
+! Last configuration change at 21:32:41 UTC Fri Sep 9 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -3018,6 +3045,7 @@ interface GigabitEthernet0/11
 router ospfv3 1
  router-id 7.7.7.7
  area 15 nssa
+ area 15 authentication ipsec spi 1015 sha1 332C0C249DFB05B93DD2766520F8215EF48FA9EA
  !
  address-family ipv6 unicast
   redistribute connected route-map RM-LOOPBACKS
@@ -3093,7 +3121,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 00:32:10 UTC Fri Sep 9 2016
+! Last configuration change at 22:46:21 UTC Fri Sep 9 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -3295,6 +3323,9 @@ interface GigabitEthernet0/14
  duplex full
  speed auto
  media-type rj45
+ ipv6 address 2001:192::9/64
+ ipv6 enable
+ ipv6 nd ra interval 30
 !
 router bgp 65000
  bgp router-id 9.9.9.9
@@ -3306,6 +3337,7 @@ router bgp 65000
  exit-address-family
  !
  address-family ipv6
+  network 2001:192::/64 route-map RM-WS
   network 2001:470:5:B0C::/67
   network 2001:470:5:B0C:2000::/67
   network 2001:470:5:B0C:4000::/67
@@ -3322,6 +3354,8 @@ no ip http server
 no ip http secure-server
 ip ssh server algorithm authentication password
 !
+!
+route-map RM-WS permit 10
 !
 !
 !
