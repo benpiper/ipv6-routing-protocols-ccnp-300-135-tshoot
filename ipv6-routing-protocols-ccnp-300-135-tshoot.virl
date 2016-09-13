@@ -1493,7 +1493,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5002</entry>
             <entry key="config" type="String">!
-! Last configuration change at 22:17:11 UTC Tue Sep 13 2016
+! Last configuration change at 22:47:40 UTC Tue Sep 13 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -1657,7 +1657,7 @@ no ip http secure-server
 ip ssh server algorithm authentication password
 !
 !
-ipv6 neighbor FE80::1 GigabitEthernet0/1 ffff.ffff.fffa
+ipv6 neighbor FE80::1 GigabitEthernet0/1 feed.baba.dada
 !
 !
 ipv6 access-list SECURE
