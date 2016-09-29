@@ -1939,7 +1939,7 @@ end</entry>
             <entry key="AutoNetkit.IGP" type="String">eigrp</entry>
             <entry key="static_serial_port_0" type="Integer">5004</entry>
             <entry key="config" type="String">!
-! Last configuration change at 19:05:49 UTC Mon Sep 26 2016
+! Last configuration change at 21:07:49 UTC Thu Sep 29 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -2040,7 +2040,7 @@ interface Tunnel0
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.4.145 255.255.0.0
+ ip address 10.255.4.207 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -2145,6 +2145,7 @@ router bgp 50000
  exit-address-family
  !
  address-family ipv6
+  network 2002::3/128
   neighbor 2002::8 activate
  exit-address-family
 !
@@ -2155,6 +2156,7 @@ no ip http server
 no ip http secure-server
 ip ssh server algorithm authentication password
 !
+ipv6 route 2002::3/128 Null0
 ipv6 route 2002::8/128 2001:1457::7
 !
 !
@@ -3242,7 +3244,7 @@ end</entry>
             <entry key="AutoNetkit.mgmt_ip" type="string"></entry>
             <entry key="static_serial_port_0" type="Integer">5009</entry>
             <entry key="config" type="String">!
-! Last configuration change at 13:44:36 UTC Mon Sep 26 2016
+! Last configuration change at 21:07:08 UTC Thu Sep 29 2016
 !
 version 15.6
 service timestamps debug datetime msec
@@ -3340,7 +3342,7 @@ interface Loopback6000
 interface GigabitEthernet0/0
  description OOB Management
  vrf forwarding Mgmt-intf
- ip address 10.255.4.150 255.255.0.0
+ ip address 10.255.4.212 255.255.0.0
  duplex full
  speed auto
  media-type rj45
@@ -3446,6 +3448,7 @@ interface GigabitEthernet0/14
  media-type rj45
  ipv6 address 2001:192::9/64
  ipv6 enable
+ ipv6 nd ra suppress all
  ipv6 nd ra interval 30
 !
 router bgp 65000
